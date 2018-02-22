@@ -1,0 +1,14 @@
+<p>ログイン完了ユーザ: <%= current_user.name %></p>
+<% if !current_user.games.any? %>
+  <h3>最初にゲームを登録して下さい</h3>
+<% end %>
+  
+
+ゲーム別で検索：
+<%= form_for(:search, url: search_path) do |f| %>
+  <%= f.collection_select :game_id, current_user.try!(:games), :id, :name, include_blank: '全て表示' , selected: (params[:search][:game_id] if params[:search].present?)  %>
+  <%= f.submit '検索する' %>
+<% end %>
+<ul>
+  <%= render @kakins %>
+</ul>

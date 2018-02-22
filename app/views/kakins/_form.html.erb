@@ -1,0 +1,16 @@
+<%= form_for(kakin) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <%= f.label :date, '課金日' %>
+  <%= f.date_field :date %>
+  
+  <%= f.label :amount, '金額' %>
+  <%= f.text_field :amount %>
+  
+  <%= f.label :game_id, 'ゲーム' %>
+  <%= f.collection_select :game_id, current_user.try!(:games), :id, :name, prompt: "選択して下さい。" %>
+  
+  <%= f.label :comment, 'コメント' %>
+  <%= f.text_field :comment %>
+  
+  <%= f.submit '記録する' %>
+<% end %>

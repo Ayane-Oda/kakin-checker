@@ -1,0 +1,5 @@
+<li>
+  ゲーム:<%= kakin.game.name %>, 金額:<%= kakin.amount %>, 課金日:<%= kakin.date %>
+  <%= link_to '詳細', kakin %> <%= link_to '編集', edit_kakin_path(kakin) %> 
+  <%= link_to '削除', kakin, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+</li>

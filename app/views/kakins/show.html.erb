@@ -1,0 +1,4 @@
+<%= @kakin.inspect %>
+
+<%= link_to '編集', edit_kakin_path(@kakin) %> 
+<%= link_to '削除', @kakin, method: :delete, data: { confirm: '本当に削除しますか？' } %>
